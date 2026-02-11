@@ -62,6 +62,23 @@
                                 <i class="bi bi-lock me-1"></i>Clôturer
                             </button>
                         </form>
+                        <form action="{{ route('commandes.retourner', $commande) }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-warning"
+                                    onclick="return confirm('Êtes-vous sûr de vouloir marquer cette commande comme retournée ?')">
+                                <i class="bi bi-arrow-return-left me-1"></i>Retourner
+                            </button>
+                        </form>
+                    @endif
+                    
+                    @if($commande->statut == App\Models\Commande::STATUT_ENVOYEE)
+                        <form action="{{ route('commandes.retourner', $commande) }}" method="POST" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-warning"
+                                    onclick="return confirm('Êtes-vous sûr de vouloir marquer cette commande comme retournée ?')">
+                                <i class="bi bi-arrow-return-left me-1"></i>Retourner
+                            </button>
+                        </form>
                     @endif
                     
                     @if(!in_array($commande->statut, [App\Models\Commande::STATUT_LIVREE, App\Models\Commande::STATUT_CLOTUREE, App\Models\Commande::STATUT_ANNULEE]))

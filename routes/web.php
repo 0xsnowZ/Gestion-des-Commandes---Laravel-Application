@@ -56,6 +56,7 @@ Route::prefix('commandes')->group(function () {
     Route::post('/{commande}/deliver', [CommandeController::class, 'deliver'])->name('commandes.deliver');
     Route::post('/{commande}/close', [CommandeController::class, 'close'])->name('commandes.close');
     Route::post('/{commande}/cloturer', [CommandeController::class, 'cloturer'])->name('commandes.cloturer');
+    Route::post('/{commande}/retourner', [CommandeController::class, 'retourner'])->name('commandes.retourner');
 
     // Recherche et export
     Route::get('/search', [CommandeController::class, 'search'])->name('commandes.search');

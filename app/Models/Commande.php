@@ -225,6 +225,21 @@ class Commande extends Model
     }
 
     /**
+     * Marquer la commande comme retournée
+     */
+    public function retourner(): bool
+    {
+        if (!in_array($this->statut, [self::STATUT_LIVREE, self::STATUT_ENVOYEE])) {
+            return false;
+        }
+
+        $this->update([
+            'statut' => self::STATUT_RETOURNEE
+        ]);
+        return true;
+    }
+
+    /**
      * Archiver la commande (soft delete)
      */
     public function archiver(): bool
@@ -268,8 +283,8 @@ class Commande extends Model
     {
         return $query->whereHas('client', function ($q) use ($search) {
             $q->where('nom', 'like', "%{$search}%")
-              ->orWhere('prenom', 'like', "%{$search}%")
-              ->orWhere('telephone', 'like', "%{$search}%");
+                ->orWhere('prenom', 'like', "%{$search}%")
+                ->orWhere('telephone', 'like', "%{$search}%");
         })->orWhere('id', 'like', "%{$search}%");
     }
 

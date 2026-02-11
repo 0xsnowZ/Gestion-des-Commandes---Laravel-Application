@@ -6,7 +6,7 @@
 <style>
     /* Header Section */
     .catalog-header {
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
         border-radius: 1rem;
         padding: 2rem;
         margin-bottom: 2rem;
@@ -167,7 +167,7 @@
     .current-price {
         font-size: 1.35rem;
         font-weight: 700;
-        color: #6366f1;
+        color: #2563eb;
     }
     .original-price {
         font-size: 0.9rem;
@@ -192,11 +192,11 @@
     }
     .qty-input:focus {
         outline: none;
-        border-color: #6366f1;
+        border-color: #3b82f6;
     }
     .btn-add-cart {
         flex: 1;
-        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         border: none;
         border-radius: 0.5rem;
         color: white;
@@ -210,8 +210,8 @@
         transition: all 0.3s ease;
     }
     .btn-add-cart:hover:not(:disabled) {
-        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
         color: white;
     }
     .btn-add-cart:disabled {
@@ -250,7 +250,7 @@
     }
     .btn-view-cart:hover {
         background: white;
-        color: #6366f1;
+        color: #2563eb;
     }
 </style>
 @endsection

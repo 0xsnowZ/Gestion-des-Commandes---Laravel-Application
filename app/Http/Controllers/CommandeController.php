@@ -322,6 +322,20 @@ class CommandeController extends Controller
     }
 
     /**
+     * Marquer la commande comme retournée
+     */
+    public function retourner(Commande $commande)
+    {
+        if (!$commande->retourner()) {
+            return redirect()->back()
+                ->with('error', 'Cette commande ne peut pas être marquée comme retournée.');
+        }
+
+        return redirect()->route('commandes.show', $commande)
+            ->with('success', 'Commande marquée comme retournée.');
+    }
+
+    /**
      * Recherche avancée de commandes
      */
     public function search(Request $request)
